@@ -20,4 +20,5 @@ public interface AccountService {
     public List<User> findByUserName(String userName);
     public User findByEmail(String email);
     public List<User> findAllAccount();
+    public boolean checkAccountAvailability(User user);
 }

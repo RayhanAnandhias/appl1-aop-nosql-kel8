@@ -8,7 +8,7 @@ import java.util.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import com.mycompany.manageaccounts.model.User;
-import com.mycompany.manageaccounts.config.MongoConfig;
+import com.mycompany.manageaccounts.config.*;
 import com.mycompany.manageaccounts.service.AccountService;
 import java.util.Date;
 /**
