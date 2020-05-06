@@ -3,20 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.manageaccounts.service;
+package com.mycompany.manageaccounts.config;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.ProceedingJoinPoint;
 /**
  *
  * @author rayhan-andhika
  */
+@Aspect
 public class AccountServiceaspect {
-    private Log log = LogFactory.getLog(this.getClass());
+    private Logger log = Logger.getLogger(this.getClass().getName());
+    Handler handlerobj = new ConsoleHandler();
+    
+    public AccountServiceaspect(){
+        handlerobj.setLevel(Level.ALL);
+        log.addHandler(handlerobj);
+        log.setLevel(Level.ALL);
+        log.setUseParentHandlers(false);
+    }
     
  
     @Before("execution(* *.*(..))")
