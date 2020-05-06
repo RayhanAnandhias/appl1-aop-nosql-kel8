@@ -8,7 +8,7 @@ import java.util.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import com.mycompany.manageaccounts.model.User;
-import com.mycompany.manageaccounts.config.MongoConfig;
+import com.mycompany.manageaccounts.config.*;
 import com.mycompany.manageaccounts.service.AccountService;
 import java.util.Date;
 /**
@@ -20,18 +20,9 @@ public class App {
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(MongoConfig.class);
         AccountService accService = (AccountService) context.getBean("accountService");
         
-        accService.deleteAllAccount();
+        Menu menu = new Menu(accService);
+        menu.select();
         
-        User one = new User("rayhanazka@gmail.com", "rayhananandhias", "abc123", "rayhan azka", new Date());
-        User two = new User("abc@gmail.com", "abcd", "jtk123", "decepticon", new Date());
-        User three = new User("def@gmail.com", "defg", "bdg123", "darth vader", new Date());
-        accService.createAccount(one);
-        accService.createAccount(two);
-        accService.createAccount(three);
-//        List<User> users = accService.findByUserName("rayhananandhias");
-//        for (User user : users) {
-//            System.out.println(user);
-//        }
         context.close();
     }
 }

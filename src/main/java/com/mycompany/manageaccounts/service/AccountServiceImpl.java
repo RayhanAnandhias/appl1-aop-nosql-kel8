@@ -60,7 +60,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public User findAccount(String id) {
-        return accRepo.findById(id).get();
+        return accRepo.findById(id).orElse(null);
     }
 
     @Override
@@ -68,4 +68,8 @@ public class AccountServiceImpl implements AccountService {
         return accRepo.findByEmail(email);
     }
     
+    @Override
+    public boolean checkAccountAvailability(User user) {
+        return (findByEmail(user.getEmail()) != null);
+    }
 }

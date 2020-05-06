@@ -15,12 +15,12 @@ import com.mycompany.manageaccounts.model.User;
  */
 @Repository
 public interface AccountRepository extends MongoRepository<User, String> {
-    @Query("{ 'fullName' : ?0 }")
+    @Query("{ 'fullName' : {$regex : '.*?0.*'}}")
     List<User> findByFullName(String fullName);
     
-    @Query("{ 'username' : ?0 }")
+    @Query("{ 'username' : {$regex : '.*?0.*'}}")
     List<User> findByUserName(String userName);
     
     @Query("{ 'email' : ?0 }")
-    User findByEmail(String id);
+    User findByEmail(String email);
 }
