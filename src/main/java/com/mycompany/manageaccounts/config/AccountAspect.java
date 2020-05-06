@@ -26,11 +26,13 @@ public class AccountAspect {
     
     @Before("execution(* com.mycompany.manageaccounts.service.AccountService.*(..))")
     public void runBefore(JoinPoint joinPoint) {
-        log.info("Method " + joinPoint.getSignature().getName() + " () telah dijalankan");
+        System.out.println("Sebelum Method " + joinPoint.getSignature().getName() + "()" +  " dijalankan...");
+        log.info("Method " + joinPoint.getSignature().getName() + " () akan segera dijalankan");
     }
  
     @AfterReturning(pointcut = "execution(* com.mycompany.manageaccounts.service.AccountService.*(..))", returning = "result")
     public void runAfterReturning(JoinPoint joinPoint, Object result) {
+        System.out.println("Setelah  Method " + joinPoint.getSignature().getName() + "()" + " dijalankan...");
         log.info("Method " + joinPoint.getSignature().getName() + " () telah dijalankan dengan hasil : " + result);
     }
 }
