@@ -33,6 +33,6 @@ public class AccountAspect {
     @AfterReturning(pointcut = "execution(* com.mycompany.manageaccounts.service.AccountService.*(..))", returning = "result")
     public void runAfterReturning(JoinPoint joinPoint, Object result) {
         System.out.println("Setelah  Method " + joinPoint.getSignature().getName() + "()" + " dijalankan...");
-        log.info("Method " + joinPoint.getSignature().getName() + " () telah dijalankan dengan hasil : " + result);
+        log.info("Method " + joinPoint.getSignature().getName() + " () telah dijalankan dengan hasil return : " + result);
     }
 }
