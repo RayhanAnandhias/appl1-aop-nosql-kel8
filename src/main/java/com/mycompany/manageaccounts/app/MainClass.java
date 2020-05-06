@@ -17,8 +17,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class MainClass {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("com.mycompany.manageaccounts.app/container.xml");
-        AccountService accountservice = (AccountService) context.getBean("accountservice");
+        ApplicationContext aspect = new ClassPathXmlApplicationContext("com.mycompany.manageaccounts.app/container.xml");
+        AccountService accountservice = (AccountService) aspect.getBean("accountservice");
         accountservice.deleteAllAccount();
         User one = new User("andhikazulfikor@gmail.com", "andhika", "inipwdnya", "andhika zulfikor", new Date());
         User two = new User("subarunatsuki@gmail.com", "subaru", "subarashi", "subaru natsuki", new Date());

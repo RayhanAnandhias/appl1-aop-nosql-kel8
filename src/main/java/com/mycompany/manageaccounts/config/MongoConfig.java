@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import com.mongodb.MongoClient;
 import org.springframework.context.annotation.ComponentScan;
 /**
- *
+ * 
  * @author rayhan-andika
  */
 @Configuration

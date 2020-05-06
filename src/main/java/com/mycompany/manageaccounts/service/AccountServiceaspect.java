@@ -17,19 +17,23 @@ import org.aspectj.lang.annotation.Before;
  */
 public class AccountServiceaspect {
     private Log log = LogFactory.getLog(this.getClass());
+    
  
     @Before("execution(* *.*(..))")
     public void runBefore(JoinPoint joinPoint) {
         log.info("Method " + joinPoint.getSignature().getName() + " () telah dijalankan");
+        System.out.println("Project run");
     }
  
     @AfterReturning(pointcut = "execution(* *.*(..))", returning = "result")
     public void runAfterReturning(JoinPoint joinPoint, Object result) {
         log.info("Method " + joinPoint.getSignature().getName() + " () telah dijalankan dengan hasil : " + result);
+        System.out.println("Project result");
     }
  
     @AfterThrowing(pointcut = "execution(* *.*(..))", throwing = "e")
     public void runAfterThrowing(JoinPoint joinPoint, Throwable e) {
         log.info("Terjadi error " + e + " didalam method " + joinPoint.getSignature().getName());
+        System.out.println("Project error");
     }
 }
