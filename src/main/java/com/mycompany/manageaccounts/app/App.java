@@ -23,16 +23,8 @@ public class App {
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(MongoConfig.class);
         AccountService accService = (AccountService) context.getBean("accountService");
         
-        accService.deleteAllAccount();
-        
-        User one = new User("rayhanazka@gmail.com", "rayhananandhias", "abc123", "rayhan azka", new Date());
-        User two = new User("abc@gmail.com", "abcd", "jtk123", "decepticon", new Date());
-        User three = new User("def@gmail.com", "defg", "bdg123", "darth vader", new Date());
-        User four = new User("kiritod@gmail.com","kirito","iwantobeafakboy","Kagaya Kirito", new Date());
-        accService.createAccount(one);
-        accService.createAccount(two);
-        accService.createAccount(three);
-        accService.createAccount(four);
+        Menu menu = new Menu(accService);
+        menu.select();
 //        List<User> users = accService.findByUserName("rayhananandhias");
 //        for (User user : users) {
 //            System.out.println(user);
