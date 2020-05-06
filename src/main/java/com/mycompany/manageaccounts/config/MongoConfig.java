@@ -21,8 +21,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAspectJAutoProxy
 public class MongoConfig extends AbstractMongoConfiguration {
     @Bean
-    public AccountServiceaspect accountServiceaspect(){
-        return new AccountServiceaspect();
+    public AccountAspect accountServiceaspect(){
+        return new AccountAspect();
         
     }
     @Override

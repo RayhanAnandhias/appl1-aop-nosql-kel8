@@ -20,11 +20,11 @@ import org.aspectj.lang.ProceedingJoinPoint;
  * @author rayhan-andhika
  */
 @Aspect
-public class AccountServiceaspect {
+public class AccountAspect {
     private Logger log = Logger.getLogger(this.getClass().getName());
     Handler handlerobj = new ConsoleHandler();
     
-    public AccountServiceaspect(){
+    public AccountAspect(){
         handlerobj.setLevel(Level.ALL);
         log.addHandler(handlerobj);
         log.setLevel(Level.ALL);
