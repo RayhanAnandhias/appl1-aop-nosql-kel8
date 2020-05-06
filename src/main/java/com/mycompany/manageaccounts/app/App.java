@@ -14,16 +14,12 @@ import com.mycompany.manageaccounts.service.AccountService;
  */
 public class App {
     public static void main(String[] args) {
-       // ApplicationContext aspect= new ClassPathXmlApplicationContext("com.mycompany.manageaccounts.app/container.xml");
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(MongoConfig.class);
         AccountService accService = (AccountService) context.getBean("accountService");
         
         Menu menu = new Menu(accService);
         menu.select();
-//        List<User> users = accService.findByUserName("rayhananandhias");
-//        for (User user : users) {
-//            System.out.println(user);
-//        }
+        
         context.close();
     }
 }

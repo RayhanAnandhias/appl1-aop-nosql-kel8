@@ -30,13 +30,13 @@ public class AccountAspect {
         log.setLevel(Level.ALL);
         log.setUseParentHandlers(false);
     }
-    @Before("execution(* *.*(..))")
+    @Before("execution(* com.mycompany.manageaccounts.service.AccountService.*(..))")
     public void runBefore(JoinPoint joinPoint) {
         log.info("Method " + joinPoint.getSignature().getName() + " () telah dijalankan");
         System.out.println("Project run");
     }
  
-    @AfterReturning(pointcut = "execution(* *.*(..))", returning = "result")
+    @AfterReturning(pointcut = "execution(* com.mycompany.manageaccounts.service.AccountService.*(..))", returning = "result")
     public void runAfterReturning(JoinPoint joinPoint, Object result) {
         log.info("Method " + joinPoint.getSignature().getName() + " () telah dijalankan dengan hasil : " + result);
         System.out.println("Project result");
